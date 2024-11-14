@@ -4,7 +4,7 @@ from rest_framework import status, permissions
 from django.shortcuts import get_object_or_404
 from .serializers import UserSerializer
 from .models import User
-from .pagination import CustomPagination
+from application.utils.pagination import CustomPagination
 
 
 class UserListCreateView(generics.GenericAPIView):

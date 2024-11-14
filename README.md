@@ -10,7 +10,7 @@
 | name        | VARCHAR(80)  | NOT NULL     |
 | description | TEXT         | NOT NULL     |
 | price       | NUMERIC      | NOT NULL     |
-| stock       | INTEGER      | NOT NULL     |
+| stock       | INTEGER      | DEFAULT 0    |
 | image_url   | VARCHAR(255) | NOT NULL     |
 | status      | BOOLEAN      | DEFAULT TRUE |
 
