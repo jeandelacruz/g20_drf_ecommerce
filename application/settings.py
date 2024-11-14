@@ -44,7 +44,8 @@ INSTALLED_APPS = [
 
     'users',
     'authentication',
-    'products'
+    'products',
+    'shopping_cart'
 ]
 
 MIDDLEWARE = [
@@ -171,7 +172,7 @@ SWAGGER_SETTINGS = {
 # SimpleJWT
 # https://django-rest-framework-simplejwt.readthedocs.io/en/latest/settings.html
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1)
 }
 

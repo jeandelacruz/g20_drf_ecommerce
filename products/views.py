@@ -1,6 +1,6 @@
 from rest_framework.viewsets import generics
 from rest_framework.response import Response
-from rest_framework import status, parsers
+from rest_framework import status, parsers, permissions
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 
@@ -18,6 +18,7 @@ class ProductListCreateView(generics.GenericAPIView):
     http_method_names = ['get', 'post']
     pagination_class = CustomPagination
     parser_classes = [parsers.MultiPartParser]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     @swagger_auto_schema(
         manual_parameters=[
@@ -57,6 +58,7 @@ class ProductGetUpdateDeleteView(generics.GenericAPIView):
     serializer_class = ProductSerializer
     http_method_names = ['get', 'patch', 'delete']
     parser_classes = [parsers.MultiPartParser]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get(self, request, id):
         record = get_object_or_404(
