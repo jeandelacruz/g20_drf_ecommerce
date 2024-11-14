@@ -183,3 +183,11 @@ EMAIL_PORT = config('MAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('MAIL_USERNAME')
 EMAIL_HOST_PASSWORD = config('MAIL_PASSWORD')
 EMAIL_USE_TLS = config('MAIL_USE_TLS', cast=bool)
+
+# Configurar AWS
+AWS_ACCESS_KEY = config('AWS_ACCESS_KEY')
+AWS_ACCESS_SECRET = config('AWS_ACCESS_SECRET')
+
+# Configuración S3
+S3_BUCKET_NAME = config('S3_BUCKET_NAME')
+S3_BUCKET_REGION = config('S3_BUCKET_REGION')
