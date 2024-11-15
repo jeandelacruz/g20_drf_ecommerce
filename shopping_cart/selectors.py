@@ -36,3 +36,7 @@ def get_products_to_cart(user_id):
         'products': products,
         'prices': prices
     }
+
+
+def clean_products_to_cart(user_id):
+    return ShoppingCart.objects.filter(user_id=user_id)
