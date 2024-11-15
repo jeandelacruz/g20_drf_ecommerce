@@ -10,6 +10,7 @@ class ShoppingCartListSerializer(serializers.Serializer):
     price = serializers.DecimalField(
         max_digits=7, decimal_places=2, source='product.price'
     )
+    image_url = serializers.URLField(source='product.image_url')
     quantity = serializers.IntegerField()
 
 
@@ -51,3 +52,14 @@ class ShoppingCartSerializer(serializers.Serializer):
         )
 
         return validated_data
+
+
+class ShoppingCartDeleteSerializer(serializers.Serializer):
+    product_id = serializers.IntegerField()
+
+    def delete(self, user_id):
+        product_id = self.validated_data['product_id']
+        record = get_object_or_404(
+            ShoppingCart, user_id=user_id, product_id=product_id
+        )
+        record.delete()
