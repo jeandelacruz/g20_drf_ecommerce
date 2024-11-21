@@ -9,6 +9,9 @@ class Order(models.Model):
     total_price = models.DecimalField(max_digits=7, decimal_places=2)
     subtotal_price = models.DecimalField(max_digits=7, decimal_places=2)
     igv_price = models.DecimalField(max_digits=7, decimal_places=2)
+    checkout_url = models.URLField(blank=True, null=True)
+    checkout_id = models.CharField(blank=True, null=True)
+    status = models.CharField(default='PENDING')
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

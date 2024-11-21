@@ -11,7 +11,16 @@ class OrderView(generics.GenericAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request):
-        user_id = request.user.id
         serializer = self.serializer_class()
-        serializer.save(user_id)
+        serializer.save(request.user)
+        return Response(status=status.HTTP_200_OK)
+
+
+class OrderEventView(generics.GenericAPIView):
+    serializer_class = OrderSerializer
+    http_method_names = ['post']
+
+    def post(self, request):
+        serializer = self.serializer_class()
+        serializer.event_trigger(request.data)
         return Response(status=status.HTTP_200_OK)
